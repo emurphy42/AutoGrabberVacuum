@@ -58,7 +58,7 @@ namespace AutoGrabberVacuum
         /// <summary>Move items into auto-grabbers at start of day</summary>
         private void OnDayStarted(object sender, DayStartedEventArgs e)
         {
-            MoveItemsIntoAutoGrabbers();
+            MoveItemsIntoAutoGrabbers(manualRequest: false);
         }
 
         /// <summary>Move items into auto-grabbers on request</summary>
@@ -66,12 +66,12 @@ namespace AutoGrabberVacuum
         {
             if (e.Button == this.Config.VacuumKey)
             {
-                MoveItemsIntoAutoGrabbers();
+                MoveItemsIntoAutoGrabbers(manualRequest: true);
             }
         }
 
         /// <summary>Move items into auto-grabbers</summary>
-        private void MoveItemsIntoAutoGrabbers()
+        private void MoveItemsIntoAutoGrabbers(bool manualRequest)
         {
             var numberItemsMoved = 0;
 
@@ -180,9 +180,12 @@ namespace AutoGrabberVacuum
                 }
             }
 
-            // If any items were moved, then display a message
+            // Display message summarizing results
 
-            Game1.showGlobalMessage(Helper.Translation.Get("Message_VacuumResult", new { NumberItems = numberItemsMoved }));
+            if (numberItemsMoved > 0 || manualRequest == true)
+            {
+                Game1.showGlobalMessage(Helper.Translation.Get("Message_VacuumResult", new { NumberItems = numberItemsMoved }));
+            }
         }
     }
 }

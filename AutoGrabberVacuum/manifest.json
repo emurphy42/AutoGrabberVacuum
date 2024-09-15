@@ -1,7 +1,7 @@
 {
   "Name": "Auto-Grabber Vacuum",
   "Author": "John Peters (you know, the farmer?)",
-  "Version": "0.9.0",
+  "Version": "0.9.1",
   "Description": "Auto-Grabbers grab animal products already spawned onto the floor.",
   "UniqueID": "JohnPeters.AutoGrabberVacuum",
   "EntryDll": "AutoGrabberVacuum.dll",
