@@ -1,0 +1,4 @@
+{
+  "Message_VacuumResult": "Items vacuumed: {{NumberItems}}",
+  "Options_VacuumKey": "Immediate vacuum key"
+}
